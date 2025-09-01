@@ -1,0 +1,4 @@
+.intro_btns{
+  display: flex;
+  flex-direction: row;
+}
