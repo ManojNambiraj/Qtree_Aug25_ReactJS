@@ -9,6 +9,8 @@ function App() {
     <div className="App">
       <EcommerceSite />
 
+      {/* <h1>Hello world</h1> */}
+
       {/* <Routing /> */}
 
       {/* <LikeCounter /> */}
