@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function UserManagement() {
 
@@ -14,11 +15,12 @@ function UserManagement() {
 
         setUserData(studentsDatas.data);
     }
-  
-
 
   return (
     <div>
+      <Link to={"/create"} className="btn btn-primary m-4">
+        Create User
+      </Link>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -43,7 +45,6 @@ function UserManagement() {
               </tr>
             );
           })}
-          
         </tbody>
       </table>
     </div>

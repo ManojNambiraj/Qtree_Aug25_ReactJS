@@ -3,13 +3,13 @@
 // import LikeCounter from './LikeCounter';
 // import Routing from './Routing';
 // import EcommerceSite from "./EcommerceSite";
-import UserManagement from "./UserManagement";
+import UserApp from "./Pages/UserApp";
 
 function App() {
   return (
     <div className="App">
 
-      <UserManagement />
+      <UserApp />
 
       {/* <EcommerceSite /> */}
 
