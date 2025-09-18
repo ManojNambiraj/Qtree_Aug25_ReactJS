@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "./CreateUser.css"
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function CreateUser() {
+
+    const navigate = useNavigate()
 
     const [userInput, setUserInput] = useState({
         name: "",
@@ -15,12 +19,23 @@ function CreateUser() {
         setUserInput({...userInput, [name]: value})
     }
 
-    console.log(userInput);
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      
+      const postedData = await axios.post(
+        `https://68c97466ceef5a150f64f507.mockapi.io/students`,
+        userInput
+      );
+
+      if(postedData){
+        navigate("/")
+      }      
+    }
     
 
   return (
     <div className="main">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2 style={{ textAlign: "center", paddingBottom: "20px" }}>
           User Register
         </h2>

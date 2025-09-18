@@ -30,6 +30,7 @@ function UserManagement() {
             <th scope="col">Email</th>
             <th scope="col">Mobile</th>
             <th scope="col">Password</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -42,6 +43,10 @@ function UserManagement() {
                 <td>{item.email}</td>
                 <td>{item.mobile}</td>
                 <td>{item.password}</td>
+                <td>
+                  <button className="btn btn-sm btn-warning">Edit</button>
+                  <button className="btn btn-sm btn-danger">Delete</button>
+                </td>
               </tr>
             );
           })}
