@@ -16,6 +16,16 @@ function UserManagement() {
         setUserData(studentsDatas.data);
     }
 
+    const handleDelete = async (id) => {
+      const deletedData = await axios.delete(
+        `https://68c97466ceef5a150f64f507.mockapi.io/students/${id}`
+      );
+
+      if (deletedData) {
+        getData();
+      }
+    }
+
   return (
     <div>
       <Link to={"/create"} className="btn btn-primary m-4">
@@ -44,8 +54,13 @@ function UserManagement() {
                 <td>{item.mobile}</td>
                 <td>{item.password}</td>
                 <td>
-                  <button className="btn btn-sm btn-warning">Edit</button>
-                  <button className="btn btn-sm btn-danger">Delete</button>
+                  <Link to={`/edit/${item.id}`} className="btn btn-sm btn-warning">Edit</Link>
+                  <button
+                    className="btn btn-sm btn-danger"
+                    onClick={() => {handleDelete(item.id)}}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             );
