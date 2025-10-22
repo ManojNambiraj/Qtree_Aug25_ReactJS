@@ -20,10 +20,10 @@ function EditUser() {
 
     const getUserData = async () => {
         const userData = await axios.get(
-          `https://68c97466ceef5a150f64f507.mockapi.io/students/${id}`
+          `http://localhost:8002/user/${id}`
         );
 
-        setUserInput(userData.data);
+        setUserInput(userData.data.data);
     }    
 
     const handleChange = ({ target: { value, name } }) => {
@@ -33,10 +33,15 @@ function EditUser() {
     const handleSubmit = async (e) => {
       e.preventDefault();
 
-      const postedData = await axios.put(
-        `https://68c97466ceef5a150f64f507.mockapi.io/students/${id}`,
-        userInput
-      );
+      const {name, age, email, mobile, password} = userInput;
+
+      const postedData = await axios.put(`http://localhost:8002/edit/${id}`, {
+        name,
+        age,
+        email,
+        mobile,
+        password,
+      });
 
       if (postedData) {
         navigate("/");

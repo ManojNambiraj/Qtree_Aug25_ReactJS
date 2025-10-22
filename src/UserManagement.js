@@ -11,14 +11,17 @@ function UserManagement() {
     }, []);
 
     const getData = async () => {
-        const studentsDatas = await axios.get(`https://68c97466ceef5a150f64f507.mockapi.io/students`);
+        const studentsDatas = await axios.get(`http://localhost:8002/users`);
 
-        setUserData(studentsDatas.data);
+        console.log(studentsDatas);
+        
+
+        setUserData(studentsDatas.data.data);
     }
 
     const handleDelete = async (id) => {
       const deletedData = await axios.delete(
-        `https://68c97466ceef5a150f64f507.mockapi.io/students/${id}`
+        `http://localhost:8002/delete/${id}`
       );
 
       if (deletedData) {
@@ -54,10 +57,10 @@ function UserManagement() {
                 <td>{item.mobile}</td>
                 <td>{item.password}</td>
                 <td>
-                  <Link to={`/edit/${item.id}`} className="btn btn-sm btn-warning">Edit</Link>
+                  <Link to={`/edit/${item._id}`} className="btn btn-sm btn-warning">Edit</Link>
                   <button
                     className="btn btn-sm btn-danger"
-                    onClick={() => {handleDelete(item.id)}}
+                    onClick={() => {handleDelete(item._id)}}
                   >
                     Delete
                   </button>

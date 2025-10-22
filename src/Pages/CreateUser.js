@@ -21,11 +21,16 @@ function CreateUser() {
 
     const handleSubmit = async (e) => {
       e.preventDefault()
+
+      const {name, age, email, mobile, password} = userInput
       
-      const postedData = await axios.post(
-        `https://68c97466ceef5a150f64f507.mockapi.io/students`,
-        userInput
-      );
+      const postedData = await axios.post(`http://localhost:8002/create`, {
+        name,
+        age,
+        email,
+        mobile,
+        password,
+      });
 
       if(postedData){
         navigate("/")
