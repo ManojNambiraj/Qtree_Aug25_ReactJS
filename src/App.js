@@ -4,14 +4,13 @@
 // import Routing from './Routing';
 // import EcommerceSite from "./EcommerceSite";
 // import UserApp from "./Pages/UserApp";
-
-import EmpApp from "./EmpApp/EmpApp";
+import EmpRoute from "./EmpApp/EmpRoute";
 
 function App() {
   return (
     <div className="App">
 
-      <EmpApp />
+      <EmpRoute />
 
 
       {/* <UserApp /> */}
